@@ -1,25 +1,29 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./components/views/Login";
-import Register from "./components/views/Register";
-import Forgot from "./components/views/Forgot";
-import Checkemail from "./components/views/Checkemail";
-import Selectuser from "./components/views/Selectuser";
-import Enterpin from "./components/views/Enterpin";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Login from './screens/Login'
+import Register from './screens/Register'
+import Checkemail from './screens/Checkemail'
+import Selectuser from './screens/Selectuser'
+import Enterpin from './screens/Enterpin'
+import ForgotPassword from "./screens/ForgotPassword";
+import ForgotPin from "./screens/ForgotPin";
+import {Dashboard} from "./screens/Dashboard";
 
 const Auth = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={Login} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
-        <Route path='/forgot-password' component={Forgot} />
-        <Route path='/check-email' component={Checkemail} />
-        <Route path='/select-user' component={Selectuser} />
-        <Route path='/enter-pin' component={Enterpin} />
+        <Route exact path="/" component={Login} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/forgot-pin" component={ForgotPin} />
+        <Route path="/check-email" component={Checkemail} />
+        <Route path="/select-user" component={Selectuser} />
+        <Route path="/enter-pin" component={Enterpin} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default Auth;
+export default Auth

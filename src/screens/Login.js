@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Form from '../../utilities/Forms'
+import Form from '../utilities/Forms'
 
 const Login = () => {
 	const history = useHistory()

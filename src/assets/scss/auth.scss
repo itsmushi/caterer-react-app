@@ -3,6 +3,9 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '~bootstrap/scss/bootstrap.scss';
 
+
+
+
 .text-lightgreen {
   color: #2B817B;
 }
@@ -177,6 +180,18 @@ a {
     border: 2px solid grey;
   }
 }
+
+.btn-pin{
+  border: 2px solid grey;
+  border-radius: 8px;
+  width: 115px;
+  height: 60px;
+
+}
+.action-pin-btn{
+  background-color: rgba(139, 203, 124, 0.36);
+}
+
 
 .w-10 {
   width: 10% !important;
