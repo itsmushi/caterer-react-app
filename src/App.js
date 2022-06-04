@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './screens/Login'
-import Register from './screens/Register'
+import Register from './screens/Register/Register'
 import Checkemail from './screens/Checkemail'
 import Selectuser from './screens/Selectuser'
 import Enterpin from './screens/Enterpin'
-import ForgotPassword from "./screens/ForgotPassword";
-import ForgotPin from "./screens/ForgotPin";
-import {Dashboard} from "./screens/Dashboard";
+import ForgotPassword from './screens/ForgotPassword'
+import ForgotPin from './screens/ForgotPin'
+import { Dashboard } from './screens/Dashboard'
+import React from 'react'
 
 const Auth = () => {
   return (
+    // @ts-ignore
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />

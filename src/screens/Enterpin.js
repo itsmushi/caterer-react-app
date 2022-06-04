@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { PinInputComponent } from '../components/pinInputComponent'
 
@@ -16,7 +16,7 @@ const Enterpin = () => {
 
   function onSubmit() {
     console.log('pin inputed', pin)
-    // setPinIsCorrect(false)
+    setPinIsCorrect(false)
     history.push('/dashboard')
   }
   function addPassword(value) {

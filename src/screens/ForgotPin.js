@@ -1,3 +1,5 @@
+// @ts-nocheck
+import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Form from '../utilities/Forms'
@@ -57,7 +59,7 @@ const ForgotPin = () => {
           <form
             className="auth-form"
             method="POST"
-            onSubmit={forgotPassword} 
+            onSubmit={forgotPassword}
             autoComplete={'off'}
           >
             <p className="input-top-text">Email</p>

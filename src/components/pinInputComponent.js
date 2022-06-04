@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function PinInputComponent({ pin }) {
   return (
     <div className="inputpin d-flex justify-content-around mx-auto">
