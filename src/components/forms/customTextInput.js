@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import { IconButton, InputAdornment } from '@mui/material'
 
 export default function CustomTextInput({
-  inputHandler,
   placeholder,
   type,
   name,
@@ -16,6 +15,7 @@ export default function CustomTextInput({
   onBlur,
   helperText,
   ariaLabel,
+  onChange,
   error,
   icon,
 }) {
@@ -44,7 +44,7 @@ export default function CustomTextInput({
         helperText={helperText}
         error={error}
         onChange={(e) => {
-          inputHandler(e)
+          onChange(e)
         }}
         InputProps={{
           endAdornment: (
@@ -65,6 +65,6 @@ CustomTextInput.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
-  inputHandler: PropTypes.func,
+  onChange: PropTypes.func,
   isRequired: PropTypes.bool,
 }

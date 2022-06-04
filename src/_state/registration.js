@@ -13,6 +13,5 @@ export const mechantBusinessLicense = atom({
 export const ownerIdCardNo = atom({ key: 'ownerIdCardNo', default: '' })
 export const ownerName = atom({ key: 'ownerName', default: '' })
 export const ownerEmail = atom({ key: 'ownerEmail', default: '' })
-export const ownerPhoneInitial = atom({ key: 'ownerPhoneInitial', default: '' })
-export const ownerPhoneMiddle = atom({ key: 'ownerPhoneMiddle', default: '' })
+export const ownerPhone = atom({ key: 'ownerPhone', default: '' })
 export const ownerPin = atom({ key: 'ownerPin', default: '' })

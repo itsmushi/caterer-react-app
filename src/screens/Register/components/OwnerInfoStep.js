@@ -8,30 +8,30 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as yup from 'yup'
 import { useRecoilState } from 'recoil'
+import MuiPhoneNumber from 'material-ui-phone-number'
 import {
   ownerEmail,
   ownerIdCardNo,
   ownerName,
-  ownerPhoneInitial,
-  ownerPhoneMiddle,
   ownerPin,
+  ownerPhone,
 } from '_state'
 
 export default function OwnerInfoStep() {
   const [_ownerIdCardNo, setOwnerIdCardNo] = useRecoilState(ownerIdCardNo)
   const [_ownerName, setOwnerName] = useRecoilState(ownerName)
+
   const [_ownerEmail, setOwnerEmail] = useRecoilState(ownerEmail)
-  const [_ownerPhoneInitial, setOwnerPhoneInitial] =
-    useRecoilState(ownerPhoneInitial)
-  const [_ownerPhoneMiddle, setOwnerPhoneMiddle] =
-    useRecoilState(ownerPhoneMiddle)
+  const [_ownerPhone, setOwnerPhone] = useRecoilState(ownerPhone)
+
   const [_ownerPin, setOwnerPin] = useRecoilState(ownerPin)
 
   const validationSchema = yup.object({
     ownerIdCardNo: yup.string().required('Required'),
     ownerName: yup.string().required('Required'),
-    ownerPhoneInitial: yup.string().required('Required'),
-    ownerPhoneMiddle: yup.string().required('Required'),
+    ownerEmail: yup.string().required('Required'),
+    ownerPhone: yup.string().required('Required'),
+
     ownerPin: yup.string().required('Required'),
   })
 
@@ -41,18 +41,12 @@ export default function OwnerInfoStep() {
       ownerIdCardNo: _ownerIdCardNo,
       ownerName: _ownerName,
       ownerEmail: _ownerEmail,
-      ownerPhoneInitial: _ownerPhoneInitial,
-      ownerPhoneMiddle: _ownerPhoneMiddle,
+      ownerPhone: _ownerPhone,
       ownerPin: _ownerPin,
     },
     enableReinitialize: true,
     validationSchema: validationSchema,
   })
-
-  const optionsPhone = [
-    { label: '+1', value: '+1' },
-    { label: '+2', value: '+2' },
-  ]
 
   function handlerOwnerIdCardNo(e) {
     setOwnerIdCardNo(e.target.value)
@@ -61,12 +55,13 @@ export default function OwnerInfoStep() {
   function handlerOwnerName(e) {
     setOwnerName(e.target.value)
   }
-  function handlerChangePhoneInitial(value) {
-    console.log(value)
-  }
 
-  function handlerChangePhoneMiddle(e) {
-    setOwnerPhoneMiddle(e.target.value)
+  function handlerOwnerEmail(e) {
+    setOwnerEmail(e.target.value)
+  }
+  function handlerOwnerPhone(v) {
+    console.log(v)
+    setOwnerPhone(v)
   }
   function handlerOwnerPin(e) {
     setOwnerPin(e.target.value)
@@ -82,6 +77,7 @@ export default function OwnerInfoStep() {
         name={'ownerIdCardNo'}
         value={formik.values.ownerIdCardNo}
         onBlur={formik.handleBlur}
+        onChange={handlerOwnerIdCardNo}
         error={
           formik.touched.ownerIdCardNo && Boolean(formik.errors.ownerIdCardNo)
         }
@@ -94,6 +90,7 @@ export default function OwnerInfoStep() {
         ariaLabel={undefined}
         value={formik.values.ownerName}
         onBlur={formik.handleBlur}
+        onChange={handlerOwnerName}
         error={formik.touched.ownerName && Boolean(formik.errors.ownerName)}
         helperText={formik.touched.ownerName && formik.errors.ownerName}
       />
@@ -103,6 +100,7 @@ export default function OwnerInfoStep() {
         icon={undefined}
         value={formik.values.ownerEmail}
         onBlur={formik.handleBlur}
+        onChange={handlerOwnerEmail}
         helperText={formik.touched.ownerEmail && formik.errors.ownerEmail}
         ariaLabel={undefined}
         error={formik.touched.ownerEmail && Boolean(formik.errors.ownerEmail)}
@@ -122,43 +120,19 @@ export default function OwnerInfoStep() {
             flexDirection: 'column',
             justifyContent: 'space-between',
             width: '280px',
+            height: '80px',
           }}
         >
           <InputLabel shrink sx={{ fontWeight: 'bold' }}>
             Phone Number
           </InputLabel>
-          {/* phne no inputs */}
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-            }}
-          >
-            <CustomDropDown
-              width={'80px'}
-              handleChange={handlerChangePhoneInitial}
-              dropdownOptions={optionsPhone}
-              defaultSelected={optionsPhone[0]}
-            />
-            <Box sx={{ width: '15px' }} />
-            <CustomTextInput
-              width="190px"
-              placeholder="xxxx-xxxx-xxxx"
-              value={formik.values.ownerPhoneMiddle}
-              onBlur={formik.handleBlur}
-              error={
-                formik.touched.ownerPhoneMiddle &&
-                Boolean(formik.errors.ownerPhoneMiddle)
-              }
-              icon={undefined}
-              helperText={
-                formik.touched.ownerPhoneMiddle &&
-                formik.errors.ownerPhoneMiddle
-              }
-              ariaLabel={undefined}
-              label={undefined}
-            />
-          </Box>
+
+          <MuiPhoneNumber
+            defaultCountry={'us'}
+            value={formik.values.ownerPhone}
+            onChange={(e, v) => handlerOwnerPhone(e)}
+            variant="filled"
+          />
         </Box>
         <Box sx={{ width: '25px' }}></Box>
         <CustomTextInput
@@ -170,6 +144,7 @@ export default function OwnerInfoStep() {
           onBlur={formik.handleBlur}
           error={formik.touched.ownerPin && Boolean(formik.errors.ownerPin)}
           ariaLabel={undefined}
+          onChange={handlerOwnerPin}
           helperText={formik.touched.ownerPin && formik.errors.ownerPin}
         />
       </Box>
