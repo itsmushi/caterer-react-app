@@ -86,23 +86,8 @@ export default function Register() {
       <RegisterLayout>
         <Box sx={{ width: '100%' }}>
           <Stepper alternativeLabel activeStep={activeStep}>
-            {/* <Step sx={{ width: '100%' }}>
-            <StepLabel>Mechant Registration </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel>Owner Infomation </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel>Waiting </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel>Finish </StepLabel>
-          </Step> */}
             {steps.map((label, index) => (
               <Step key={label} completed={completed[index]}>
-                {/* <StepButton color="primary" onClick={handleStep(index)}>
-                {label}
-              </StepButton> */}
                 <StepLabel>{label} </StepLabel>
               </Step>
             ))}

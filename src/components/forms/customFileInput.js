@@ -1,8 +1,7 @@
-import { Box, InputLabel, TextField } from '@mui/material'
-import classes from './formStyles.module.css'
-import React from 'react'
+import { Box, InputAdornment, InputLabel, TextField } from '@mui/material'
 import PropTypes from 'prop-types'
-import { IconButton, InputAdornment } from '@mui/material'
+import React from 'react'
+import classes from './formStyles.module.css'
 
 export default function CustomFileInput({
   inputHandler,
@@ -28,19 +27,16 @@ export default function CustomFileInput({
         sx={{ borderRadius: '32px', marginBottom: '15px' }}
         className={classes.inputRounded}
         fullWidth={true}
-        id="standard-basic"
         placeholder={placeholder}
         variant="filled"
         name={name}
         type={type}
+        disabled={true}
         value={value}
         required={isRequired}
         onBlur={onBlur}
         helperText={helperText}
         error={error}
-        onChange={(e) => {
-          inputHandler(e)
-        }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
