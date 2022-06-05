@@ -1,7 +1,5 @@
-import { Button, CssBaseline } from '@material-ui/core'
-import { ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { theme, useStyle } from './styles'
+import { useStyle } from './styles'
 
 export default function RegisterLayout(props) {
   const { children } = props

@@ -1,8 +1,10 @@
 import { Box, Button, Typography } from '@mui/material'
-import { history } from './../../../_helpers'
+
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function FinishStep() {
+  const history = useHistory()
   return (
     <Box
       sx={{

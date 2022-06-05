@@ -1,21 +1,17 @@
-import { Box, Button, InputLabel, Typography } from '@mui/material'
-
-import CustomDropDown from 'components/forms/customDropdown'
-import CustomFileInput from 'components/forms/customFileInput'
+import { Box, Button, InputLabel } from '@mui/material'
 import CustomTextInput from 'components/forms/customTextInput'
 import { useFormik } from 'formik'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import * as yup from 'yup'
-import { useRecoilState } from 'recoil'
 import MuiPhoneNumber from 'material-ui-phone-number'
+import React from 'react'
+import { useRecoilState } from 'recoil'
+import * as yup from 'yup'
 import {
+  activeStep,
   ownerEmail,
   ownerIdCardNo,
   ownerName,
-  ownerPin,
   ownerPhone,
-  activeStep,
+  ownerPin,
 } from '_state'
 
 export default function OwnerInfoStep() {

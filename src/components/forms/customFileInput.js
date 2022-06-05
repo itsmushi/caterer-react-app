@@ -1,8 +1,6 @@
-import { Box, InputAdornment, InputLabel, TextField } from '@mui/material'
-import PropTypes from 'prop-types'
-import React from 'react'
-import classes from './formStyles.module.css'
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined'
+import { Box, InputAdornment, InputLabel, TextField } from '@mui/material'
+import React from 'react'
 
 export default function CustomFileInput({
   placeholder,

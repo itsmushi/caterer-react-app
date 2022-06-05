@@ -175,7 +175,7 @@ export default function MerchantStep() {
           {' '}
           Already have an account?{' '}
         </Typography>
-        <Link to="/forgot-password">
+        <Link to="/login">
           <Typography variant="body1" color="primary">
             {' '}
             Login{' '}
