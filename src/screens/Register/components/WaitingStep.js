@@ -1,7 +1,11 @@
+// @ts-nocheck
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
+import { useSetRecoilState } from 'recoil'
+import { activeStep } from '_state'
 
 export default function WaitingStep() {
+  const setActiveStep = useSetRecoilState(activeStep)
   return (
     <Box
       sx={{
@@ -26,6 +30,9 @@ export default function WaitingStep() {
         sx={{ width: '480px', marginY: '40px' }}
         color="primary"
         variant="outlined"
+        onClick={() => {
+          setActiveStep(1)
+        }}
       >
         Back
       </Button>

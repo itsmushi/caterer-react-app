@@ -1,5 +1,6 @@
 import { atom } from 'recoil'
 
+export const activeStep = atom({ key: 'activeStep', default: 0 })
 export const mechantName = atom({ key: 'mechantName', default: '' })
 export const mechantAddress = atom({ key: 'mechantAddress', default: '' })
 export const mechantCertificate = atom({

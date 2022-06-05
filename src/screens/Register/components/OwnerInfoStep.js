@@ -1,5 +1,5 @@
-import { Box, InputLabel, Typography } from '@mui/material'
-import { Button } from 'bootstrap'
+import { Box, Button, InputLabel, Typography } from '@mui/material'
+
 import CustomDropDown from 'components/forms/customDropdown'
 import CustomFileInput from 'components/forms/customFileInput'
 import CustomTextInput from 'components/forms/customTextInput'
@@ -15,6 +15,7 @@ import {
   ownerName,
   ownerPin,
   ownerPhone,
+  activeStep,
 } from '_state'
 
 export default function OwnerInfoStep() {
@@ -23,16 +24,21 @@ export default function OwnerInfoStep() {
 
   const [_ownerEmail, setOwnerEmail] = useRecoilState(ownerEmail)
   const [_ownerPhone, setOwnerPhone] = useRecoilState(ownerPhone)
-
   const [_ownerPin, setOwnerPin] = useRecoilState(ownerPin)
+  const [_activeStep, setActiveStep] = useRecoilState(activeStep)
 
   const validationSchema = yup.object({
     ownerIdCardNo: yup.string().required('Required'),
     ownerName: yup.string().required('Required'),
-    ownerEmail: yup.string().required('Required'),
+    ownerEmail: yup.string().required('Required').email('Invalid email'),
     ownerPhone: yup.string().required('Required'),
 
-    ownerPin: yup.string().required('Required'),
+    ownerPin: yup
+      .string()
+      .required('Required')
+      .matches(/^[0-9]+$/, 'Must be only digits')
+      .min(4, 'Must be exactly 4 digits')
+      .max(4, 'Must be exactly 4 digits'),
   })
 
   // @ts-ignore
@@ -140,6 +146,7 @@ export default function OwnerInfoStep() {
           width={'180px'}
           placeholder="xxxx"
           icon={undefined}
+          type={'password'}
           value={formik.values.ownerPin}
           onBlur={formik.handleBlur}
           error={formik.touched.ownerPin && Boolean(formik.errors.ownerPin)}
@@ -147,6 +154,43 @@ export default function OwnerInfoStep() {
           onChange={handlerOwnerPin}
           helperText={formik.touched.ownerPin && formik.errors.ownerPin}
         />
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+
+          width: '150%',
+          justifyContent: 'end',
+          mt: '10%',
+        }}
+      >
+        <Button
+          color="inherit"
+          onClick={() => {
+            setActiveStep(0)
+          }}
+          sx={{ mr: 1, px: 4 }}
+        >
+          Back
+        </Button>
+
+        <Button
+          variant="contained"
+          size="large"
+          sx={{ px: 4 }}
+          onClick={() => {
+            formik.handleSubmit()
+            validationSchema.isValid(formik.values).then((valid) => {
+              if (valid) {
+                setActiveStep(2)
+              }
+            })
+          }}
+        >
+          Next
+        </Button>
       </Box>
     </Box>
   )

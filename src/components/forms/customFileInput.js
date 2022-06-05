@@ -2,56 +2,48 @@ import { Box, InputAdornment, InputLabel, TextField } from '@mui/material'
 import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './formStyles.module.css'
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined'
 
 export default function CustomFileInput({
-  inputHandler,
   placeholder,
-  type,
-  name,
+  multiple = false,
   label,
   value,
   isRequired = false,
   onChange,
-  onBlur,
+  name,
   helperText,
-  ariaLabel,
   error,
-  icon,
 }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <InputLabel shrink sx={{ fontWeight: 'bold' }}>
         {label}
       </InputLabel>
+
       <TextField
-        sx={{ borderRadius: '32px', marginBottom: '15px' }}
-        className={classes.inputRounded}
-        fullWidth={true}
-        placeholder={placeholder}
         variant="filled"
         name={name}
-        type={type}
+        placeholder={placeholder}
         disabled={true}
-        value={value}
         required={isRequired}
-        onBlur={onBlur}
-        helperText={helperText}
         error={error}
+        helperText={helperText}
+        value={value}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <label htmlFor="upload-attachment">
+              <label>
                 <input
                   onChange={(e) => {
                     onChange(e)
                   }}
                   style={{ display: 'none' }}
                   id="upload-attachment"
-                  name="Attachments"
-                  // multiple
+                  multiple={multiple}
                   type="file"
                 />
-                {icon}
+                <InsertDriveFileOutlinedIcon />
               </label>
             </InputAdornment>
           ),
@@ -59,13 +51,4 @@ export default function CustomFileInput({
       />
     </Box>
   )
-}
-
-CustomFileInput.propTypes = {
-  placeholder: PropTypes.string,
-  type: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  inputHandler: PropTypes.func,
-  isRequired: PropTypes.bool,
 }

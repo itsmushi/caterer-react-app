@@ -1,21 +1,34 @@
 import { makeStyles } from '@material-ui/core'
 import { createTheme } from '@mui/material/styles'
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       // main: '#2B817B',
+//       main: '#0052cc',
+//       light: '#2B817B',
+//       dark: '#2B817B',
+//     },
+//     secondary: {
+//       main: '#fff',
+//       light: '',
+//       dark: '',
+//     },
+//   },
+// })
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: '#2B817B',
-      light: '#2B817B',
-      dark: '#2B817B',
     },
     secondary: {
       main: '#fff',
-      light: '',
-      dark: '',
+    },
+    action: {
+      disabled: '#00000014',
     },
   },
 })
-
 const useStyle = makeStyles(() => ({
   root: {
     width: '80%',
@@ -23,6 +36,7 @@ const useStyle = makeStyles(() => ({
     marginRight: 'auto',
     marginTop: '4%',
     marginBottom: 'auto',
+
     // [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
     //   width: 600,
     //   marginLeft: 'auto',

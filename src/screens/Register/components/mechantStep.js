@@ -1,13 +1,13 @@
-import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined'
 import { Box, Button, Typography } from '@mui/material'
 import CustomFileInput from 'components/forms/customFileInput'
 import CustomTextInput from 'components/forms/customTextInput'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import * as yup from 'yup'
 import {
+  activeStep,
   mechantAddress,
   mechantBusinessLicense,
   mechantCertificate,
@@ -22,6 +22,7 @@ export default function MerchantStep() {
   const [_mechantBusinessLicense, setMechantBusinessLicense] = useRecoilState(
     mechantBusinessLicense
   )
+  const setActiveStep = useSetRecoilState(activeStep)
   const [certificateName, setCertificateName] = useState('')
   const [businessLicenseName, setBusinessLicenseName] = useState('')
   const validationSchema = yup.object({
@@ -35,14 +36,17 @@ export default function MerchantStep() {
     initialValues: {
       mechantName: _mechantName,
       mechantAddress: _mechantAddress,
-      mechantCertificate: _mechantCertificate,
-      mechantBusinessLicense: _mechantBusinessLicense,
+      mechantCertificate: certificateName,
+      mechantBusinessLicense: businessLicenseName,
     },
     enableReinitialize: true,
+    onSubmit: (values) => {},
     validationSchema: validationSchema,
   })
 
   function handlerMechantName(e) {
+    console.log(formik)
+
     setMechantName(e.target.value)
   }
   function handlerMechantAddress(e) {
@@ -55,17 +59,15 @@ export default function MerchantStep() {
       const url = URL.createObjectURL(file)
       setCertificateName(file.name)
       setMechantCertificate(url)
-      console.log(url)
     }
   }
   function handlerMechantBusinessLicense(e) {
     const file = e.target.files[0]
-    console.log(file)
+
     if (file) {
       const url = URL.createObjectURL(file)
       setBusinessLicenseName(file.name)
       setMechantBusinessLicense(url)
-      console.log(url)
     }
   }
 
@@ -79,7 +81,7 @@ export default function MerchantStep() {
         error={formik.touched.mechantName && Boolean(formik.errors.mechantName)}
         value={formik.values.mechantName}
         icon={undefined}
-        inputHandler={handlerMechantName}
+        onChange={handlerMechantName}
         name={'merchantName'}
         onBlur={formik.handleBlur}
       />
@@ -87,13 +89,17 @@ export default function MerchantStep() {
         label="Address"
         placeholder="Address"
         onBlur={formik.handleBlur}
-        inputHandler={handlerMechantAddress}
+        onChange={handlerMechantAddress}
         value={formik.values.mechantAddress}
-        error={undefined}
+        helperText={
+          formik.touched.mechantAddress && formik.errors.mechantAddress
+        }
+        error={
+          formik.touched.mechantAddress && Boolean(formik.errors.mechantAddress)
+        }
         icon={undefined}
-        helperText={undefined}
         ariaLabel={undefined}
-        name="merchantAddress"
+        name={'merchantAddress'}
       />
       <Box
         sx={{
@@ -106,38 +112,53 @@ export default function MerchantStep() {
         <CustomFileInput
           label="Certification"
           placeholder="Add File"
-          onBlur={formik.handleBlur}
-          error={undefined}
-          icon={<InsertDriveFileOutlinedIcon />}
-          helperText={undefined}
-          ariaLabel={'undefined'}
           name={'merchantCertificate'}
-          value={certificateName}
+          error={
+            formik.touched.mechantCertificate &&
+            Boolean(formik.errors.mechantCertificate)
+          }
+          helperText={
+            formik.touched.mechantCertificate &&
+            formik.errors.mechantCertificate
+          }
+          value={formik.values.mechantCertificate}
           onChange={handlerMechantCertificate}
         />
         <Box sx={{ width: '10px' }}></Box>
         <CustomFileInput
           label="Business License"
           placeholder="Add File"
-          onBlur={formik.handleBlur}
-          error={undefined}
-          icon={<InsertDriveFileOutlinedIcon />}
-          helperText={undefined}
-          ariaLabel={undefined}
           name={'merchantBusinessLicense'}
-          value={businessLicenseName}
+          error={
+            formik.touched.mechantBusinessLicense &&
+            Boolean(formik.errors.mechantBusinessLicense)
+          }
+          helperText={
+            formik.touched.mechantBusinessLicense &&
+            formik.errors.mechantBusinessLicense
+          }
+          value={formik.values.mechantBusinessLicense}
           onChange={handlerMechantBusinessLicense}
         />
       </Box>
       <Link to="/forgot-password">
-        <Typography variant="body1"> Forgot password? </Typography>
+        <Typography variant="body1" color="primary" sx={{ mt: 2 }}>
+          Forgot password?
+        </Typography>
       </Link>
 
       <Button
-        sx={{ width: '480px', marginY: '20px' }}
+        sx={{ width: '480px', marginY: '20px', py: 1 }}
         color="primary"
         variant="contained"
-        disabled={!formik.isValid || !formik.dirty}
+        onClick={() => {
+          formik.handleSubmit()
+          validationSchema.isValid(formik.values).then((valid) => {
+            if (valid) {
+              setActiveStep(1)
+            }
+          })
+        }}
       >
         Next
       </Button>
@@ -150,9 +171,15 @@ export default function MerchantStep() {
           justifyContent: 'center',
         }}
       >
-        <Typography variant="body1"> Already have an account? </Typography>
+        <Typography variant="body1" sx={{ mr: 1 }}>
+          {' '}
+          Already have an account?{' '}
+        </Typography>
         <Link to="/forgot-password">
-          <Typography variant="body1"> Login </Typography>
+          <Typography variant="body1" color="primary">
+            {' '}
+            Login{' '}
+          </Typography>
         </Link>
       </Box>
     </Box>

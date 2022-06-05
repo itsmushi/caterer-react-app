@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from '@mui/material'
-
+import { history } from './../../../_helpers'
 import React from 'react'
 
 export default function FinishStep() {
@@ -27,6 +27,9 @@ export default function FinishStep() {
         sx={{ width: '480px', marginY: '40px' }}
         color="primary"
         variant="outlined"
+        onClick={() => {
+          history.push('/dashboard')
+        }}
       >
         Go to Home
       </Button>
