@@ -153,12 +153,14 @@ a {
 
 .logout {
   color: #E75C62;
-  padding-bottom: 55px;
+  padding: 20px;
 }
 
 .bottom-bar {
-  position: absolute;
+  // position: absolute;
   bottom: 0%;
+  margin-top: 12%;
+  margin-bottom: 5%;
   width: 100%;
 }
 
