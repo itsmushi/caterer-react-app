@@ -193,6 +193,9 @@ a {
   height: 60px;
 
 }
+.btn-pin-middle{
+  margin: 0px 40px;
+}
 .action-pin-btn{
   background-color: rgba(139, 203, 124, 0.36);
 }
@@ -207,4 +210,30 @@ $breakpoint-tablet: 489px;
   .auth-main-col {
     width: 85%;
   }
+  .backicon{
+    display: none;
+  }
+  .pinbox {
+
+    width: 50%;
+   
+  }
+
+.inputpin {
+ 
+  .pinbox {
+    width: 40%;
+    height: 60px;
+  }
+
+}
+
+.btn-pin-middle{
+  margin: 0px 20px;
+}
+
+.btn-pin{
+  width: 70px;
+  height: 40px;
+}
 }

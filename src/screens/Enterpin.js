@@ -29,7 +29,7 @@ const Enterpin = () => {
   return (
     <div className="row g-0 auth-wrapper">
       <div className="d-flex forget-header">
-        <Link className="forget-link text-link" to="/login">
+        <Link className="forget-link text-link backicon" to="/login">
           <img src="./images/vector.png" alt="backicon" />
         </Link>
         <div className="mx-auto text-center">
@@ -59,7 +59,10 @@ const Enterpin = () => {
             <button onClick={addPassword} className="btn btn-pin ">
               1
             </button>
-            <button onClick={addPassword} className="btn btn-pin mx-5">
+            <button
+              onClick={addPassword}
+              className="btn btn-pin btn-pin-middle"
+            >
               2
             </button>
             <button onClick={addPassword} className="btn btn-pin">
@@ -70,7 +73,10 @@ const Enterpin = () => {
             <button onClick={addPassword} className="btn btn-pin">
               4
             </button>
-            <button onClick={addPassword} className="btn btn-pin mx-5">
+            <button
+              onClick={addPassword}
+              className="btn btn-pin btn-pin-middle"
+            >
               5
             </button>
             <button onClick={addPassword} className="btn btn-pin">
@@ -81,7 +87,10 @@ const Enterpin = () => {
             <button onClick={addPassword} className="btn btn-pin">
               7
             </button>
-            <button onClick={addPassword} className="btn btn-pin mx-5">
+            <button
+              onClick={addPassword}
+              className="btn btn-pin btn-pin-middle"
+            >
               8
             </button>
             <button onClick={addPassword} className="btn btn-pin">
@@ -92,12 +101,12 @@ const Enterpin = () => {
             <button
               disabled={pin.length === 0 ? true : false}
               onClick={onClear}
-              className="btn btn-pin action-pin-btn"
+              className="btn btn-pin action-pin-btn "
             >
               X
             </button>
 
-            <button className="btn btn-pin mx-5">0</button>
+            <button className="btn btn-pin btn-pin-middle">0</button>
             <button
               disabled={pin.length === 4 ? false : true}
               onClick={onSubmit}
