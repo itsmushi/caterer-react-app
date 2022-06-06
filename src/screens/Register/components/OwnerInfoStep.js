@@ -1,4 +1,4 @@
-import { Box, Button, InputLabel } from '@mui/material'
+import { Box, Button, Grid, InputLabel } from '@mui/material'
 import CustomTextInput from 'components/forms/customTextInput'
 import { useFormik } from 'formik'
 import MuiPhoneNumber from 'material-ui-phone-number'
@@ -70,7 +70,7 @@ export default function OwnerInfoStep() {
   }
 
   return (
-    <Box>
+    <>
       <CustomTextInput
         label="ID Card Number"
         placeholder="ID Card Number"
@@ -108,56 +108,42 @@ export default function OwnerInfoStep() {
         error={formik.touched.ownerEmail && Boolean(formik.errors.ownerEmail)}
       />
 
-      <Box
-        sx={{
-          width: '480px',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            width: '280px',
-            height: '80px',
-          }}
-        >
+      <Grid container spacing={2} direction="row" justifyContent="center">
+        <Grid item xl={8} lg={8} md={8} sm={8} xs={8}>
           <InputLabel shrink sx={{ fontWeight: 'bold' }}>
             Phone Number
           </InputLabel>
 
           <MuiPhoneNumber
             defaultCountry={'us'}
+            fullWidth={true}
             value={formik.values.ownerPhone}
             onChange={(e, v) => handlerOwnerPhone(e)}
             variant="filled"
           />
-        </Box>
-        <Box sx={{ width: '25px' }}></Box>
-        <CustomTextInput
-          label="Set Pin"
-          width={'180px'}
-          placeholder="xxxx"
-          icon={undefined}
-          type={'password'}
-          value={formik.values.ownerPin}
-          onBlur={formik.handleBlur}
-          error={formik.touched.ownerPin && Boolean(formik.errors.ownerPin)}
-          ariaLabel={undefined}
-          onChange={handlerOwnerPin}
-          helperText={formik.touched.ownerPin && formik.errors.ownerPin}
-        />
-      </Box>
+        </Grid>
+        <Grid item xl={4} lg={4} md={4} sm={4} xs={4}>
+          <CustomTextInput
+            label="Set Pin"
+            placeholder="xxxx"
+            icon={undefined}
+            type={'password'}
+            value={formik.values.ownerPin}
+            onBlur={formik.handleBlur}
+            error={formik.touched.ownerPin && Boolean(formik.errors.ownerPin)}
+            ariaLabel={undefined}
+            onChange={handlerOwnerPin}
+            helperText={formik.touched.ownerPin && formik.errors.ownerPin}
+          />
+        </Grid>
+      </Grid>
 
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'row',
 
-          width: '150%',
+          // width: '150%',
           justifyContent: 'end',
           mt: '10%',
         }}
@@ -188,6 +174,6 @@ export default function OwnerInfoStep() {
           Next
         </Button>
       </Box>
-    </Box>
+    </>
   )
 }
