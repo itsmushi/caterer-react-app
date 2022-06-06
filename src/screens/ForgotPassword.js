@@ -44,7 +44,7 @@ const ForgotPassword = () => {
   return (
     <div className="row g-0 auth-wrapper">
       <div className="d-flex forget-header">
-        <Link className="forget-link text-link" to="/login">
+        <Link className="forget-link text-link backicon" to="/login">
           <img src="./images/vector.png" alt="backicon" />
         </Link>
         <div className="mx-auto text-center">
