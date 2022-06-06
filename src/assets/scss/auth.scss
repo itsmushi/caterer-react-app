@@ -55,7 +55,8 @@ a {
 
 .auth-main-col {
   margin: auto;
-  margin-top: 160px;
+  width: 40%;
+  margin-top: 100px;
 }
 
 .auth-background-col {
@@ -73,11 +74,13 @@ a {
 }
 
 .auth-body {
-  width: 476px;
+  // width: 476px;
 }
 
 .title {
-  margin: 40px 0px 40px 0px;
+  margin: 40px  0px 40px 0px;
+  // margin-left: auto;
+  // margin-right: auto;
   max-height: 32px;
 
   .title-logo {
@@ -195,4 +198,11 @@ a {
 
 .w-10 {
   width: 10% !important;
+}
+
+$breakpoint-tablet: 489px;
+@media (max-width: $breakpoint-tablet) {
+  .auth-main-col {
+    width: 85%;
+  }
 }

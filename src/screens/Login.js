@@ -67,9 +67,9 @@ const Login = () => {
         <p className="title-text">CATERER APP</p>
       </div>
 
-      <div className="col-12 col-md-7 col-lg-6 auth-main-col text-center text-bold">
-        <div className="d-flex flex-column align-content-end">
-          <div className="auth-body mx-auto">
+      <div className="auth-main-col text-center text-bold">
+        <div className="d-flex flex-column align-content-end ">
+          <div className="auth-body">
             <div className="auth-form-container text-start">
               <form
                 className="auth-form"
@@ -124,7 +124,7 @@ const Login = () => {
 
                     <button
                       type="button"
-                      className="btn btn-outline-primary btn-sm"
+                      className="btn btn-outline-primary btn-md"
                       onClick={(e) => togglePassword(e)}
                     >
                       <i
