@@ -26,9 +26,10 @@ export default function FinishStep() {
         For more information you will be notified in your email
       </Typography>
       <Button
-        sx={{ width: '480px', marginY: '40px' }}
+        sx={{ width: '80%', margin: 'auto', marginY: '40px' }}
         color="primary"
         variant="outlined"
+        size="large"
         onClick={() => {
           history.push('/dashboard')
         }}

@@ -70,7 +70,7 @@ export default function OwnerInfoStep() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box>
       <CustomTextInput
         label="ID Card Number"
         placeholder="ID Card Number"

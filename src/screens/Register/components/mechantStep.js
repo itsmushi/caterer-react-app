@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Grid, Typography } from '@mui/material'
 import CustomFileInput from 'components/forms/customFileInput'
 import CustomTextInput from 'components/forms/customTextInput'
 import { useFormik } from 'formik'
@@ -72,7 +72,7 @@ export default function MerchantStep() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <>
       <CustomTextInput
         label="Merchant Name"
         placeholder="Merchant Name"
@@ -101,46 +101,44 @@ export default function MerchantStep() {
         ariaLabel={undefined}
         name={'merchantAddress'}
       />
-      <Box
-        sx={{
-          width: '480px',
-          display: 'flex',
 
-          justifyContent: 'space-between',
-        }}
-      >
-        <CustomFileInput
-          label="Certification"
-          placeholder="Add File"
-          name={'merchantCertificate'}
-          error={
-            formik.touched.mechantCertificate &&
-            Boolean(formik.errors.mechantCertificate)
-          }
-          helperText={
-            formik.touched.mechantCertificate &&
-            formik.errors.mechantCertificate
-          }
-          value={formik.values.mechantCertificate}
-          onChange={handlerMechantCertificate}
-        />
-        <Box sx={{ width: '10px' }}></Box>
-        <CustomFileInput
-          label="Business License"
-          placeholder="Add File"
-          name={'merchantBusinessLicense'}
-          error={
-            formik.touched.mechantBusinessLicense &&
-            Boolean(formik.errors.mechantBusinessLicense)
-          }
-          helperText={
-            formik.touched.mechantBusinessLicense &&
-            formik.errors.mechantBusinessLicense
-          }
-          value={formik.values.mechantBusinessLicense}
-          onChange={handlerMechantBusinessLicense}
-        />
-      </Box>
+      <Grid container spacing={2} direction="row" justifyContent="center">
+        <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+          <CustomFileInput
+            label="Certification"
+            placeholder="Add File"
+            name={'merchantCertificate'}
+            error={
+              formik.touched.mechantCertificate &&
+              Boolean(formik.errors.mechantCertificate)
+            }
+            helperText={
+              formik.touched.mechantCertificate &&
+              formik.errors.mechantCertificate
+            }
+            value={formik.values.mechantCertificate}
+            onChange={handlerMechantCertificate}
+          />
+        </Grid>
+        <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+          <CustomFileInput
+            label="Business License"
+            placeholder="Add File"
+            name={'merchantBusinessLicense'}
+            error={
+              formik.touched.mechantBusinessLicense &&
+              Boolean(formik.errors.mechantBusinessLicense)
+            }
+            helperText={
+              formik.touched.mechantBusinessLicense &&
+              formik.errors.mechantBusinessLicense
+            }
+            value={formik.values.mechantBusinessLicense}
+            onChange={handlerMechantBusinessLicense}
+          />
+        </Grid>
+      </Grid>
+
       <Link to="/forgot-password">
         <Typography variant="body1" color="primary" sx={{ mt: 2 }}>
           Forgot password?
@@ -148,7 +146,7 @@ export default function MerchantStep() {
       </Link>
 
       <Button
-        sx={{ width: '480px', marginY: '20px', py: 1 }}
+        sx={{ marginY: '20px', py: 1 }}
         color="primary"
         variant="contained"
         onClick={() => {
@@ -165,23 +163,19 @@ export default function MerchantStep() {
 
       <Box
         sx={{
-          width: '480px',
           display: 'flex',
-
           justifyContent: 'center',
         }}
       >
         <Typography variant="body1" sx={{ mr: 1 }}>
-          {' '}
-          Already have an account?{' '}
+          Already have an account?
         </Typography>
         <Link to="/login">
           <Typography variant="body1" color="primary">
-            {' '}
-            Login{' '}
+            Login
           </Typography>
         </Link>
       </Box>
-    </Box>
+    </>
   )
 }

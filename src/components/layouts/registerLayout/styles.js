@@ -32,8 +32,9 @@ let theme = createTheme({
 const useStyle = makeStyles(() => ({
   root: {
     width: '80%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
     marginTop: '4%',
     marginBottom: 'auto',
 

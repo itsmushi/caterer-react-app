@@ -11,7 +11,7 @@ export default function CustomTextInput({
   label,
   value,
   isRequired = false,
-  width = '480px',
+
   onBlur,
   helperText,
   ariaLabel,
@@ -30,9 +30,9 @@ export default function CustomTextInput({
         {label}
       </InputLabel>
       <TextField
-        sx={{ borderRadius: '32px', width: width, marginBottom: '15px' }}
-        className={classes.inputRounded}
         fullWidth={true}
+        sx={{ borderRadius: '32px', marginBottom: '15px' }}
+        className={classes.inputRounded}
         id="standard-basic"
         placeholder={placeholder}
         variant="filled"
