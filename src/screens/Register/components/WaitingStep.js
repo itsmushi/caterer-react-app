@@ -27,7 +27,7 @@ export default function WaitingStep() {
         For more information you will be notified in your email
       </Typography>
       <Button
-        sx={{ width: '480px', marginY: '40px' }}
+        sx={{ marginY: '40px' }}
         color="primary"
         variant="outlined"
         onClick={() => {

@@ -79,8 +79,13 @@ const Connector = styled(StepConnector)(({ theme }) => ({
       theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
     borderTopWidth: 3,
     marginTop: '5%',
-    marginLeft: '5%',
+    marginLeft: '10%',
+    marginRight: '10%',
     borderRadius: 1,
+  },
+  [theme.breakpoints.down('sm')]: {
+    marginTop: '12%',
+    marginLeft: '-10%',
   },
 }))
 
