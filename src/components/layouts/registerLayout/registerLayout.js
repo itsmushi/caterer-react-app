@@ -6,7 +6,14 @@ export default function RegisterLayout(props) {
   const { children } = props
   const classes = useStyle()
   return (
-    <Grid container spacing={0} direction="row" justifyContent="center" mt={3}>
+    <Grid
+      container
+      spacing={0}
+      direction="row"
+      justifyContent="center"
+      mt={3}
+      sx={{ minWidth: '320px' }}
+    >
       <Grid item xl={10} lg={10} md={10} sm={10} xs={10}>
         {children}
       </Grid>
