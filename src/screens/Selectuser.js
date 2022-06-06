@@ -19,8 +19,9 @@ const Selectuser = () => {
                   src="./images/user (1).png"
                   alt=""
                 />
+
                 <div className="text-start">
-                  <h5>Sarinah Hasbunah kasdfjas kasldjf </h5>
+                  <h5>Sarinah Hasbunah </h5>
                   <p>Manager</p>
                 </div>
               </div>
