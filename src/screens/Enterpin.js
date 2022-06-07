@@ -104,18 +104,26 @@ const Enterpin = () => {
             <button
               disabled={pin.length === 0 ? true : false}
               onClick={onClear}
-              className="btn btn-pin action-pin-btn "
+              className="btn  action-pin-btn "
             >
-              X
+              <img
+                src="./images/registration/backspace.png"
+                alt="logo"
+                className="btn-pin-img"
+              />
             </button>
 
             <button className="btn btn-pin btn-pin-middle">0</button>
             <button
               disabled={pin.length === 4 ? false : true}
               onClick={onSubmit}
-              className="btn btn-pin action-pin-btn"
+              className="btn  action-pin-btn text-center"
             >
-              {'>'}
+              <img
+                src="./images/registration/enter.png"
+                alt="logo"
+                className="btn-pin-img"
+              />
             </button>
           </div>
         </div>

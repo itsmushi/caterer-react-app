@@ -259,7 +259,7 @@ export default function OwnerInfoStep() {
               validationSchema.isValid(formik.values).then((valid) => {
                 if (valid) {
                   console.log(valid)
-                  // setActiveStep(2)
+                  setActiveStep(2)
                 }
               })
             }}
