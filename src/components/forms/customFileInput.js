@@ -15,7 +15,14 @@ export default function CustomFileInput({
 }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <InputLabel shrink sx={{ fontWeight: 'bold' }}>
+      <InputLabel
+        sx={{
+          fontWeight: 'bold',
+          fontSize: '14px',
+          mb: '5px',
+          color: '#1A1824',
+        }}
+      >
         {label}
       </InputLabel>
 

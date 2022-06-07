@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@emotion/react'
-import { Grid, StepLabel } from '@mui/material'
+import { Grid, StepLabel, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import Step from '@mui/material/Step'
 import StepConnector, {
@@ -127,7 +127,12 @@ export default function Register() {
               <StepLabel
                 icon={_activeStep >= index ? e.icon.after : e.icon.before}
               >
-                {e.label}{' '}
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 'bold', fontSize: '15px' }}
+                >
+                  {e.label}{' '}
+                </Typography>
               </StepLabel>
             </Step>
           ))}
@@ -142,15 +147,15 @@ export default function Register() {
         >
           <Grid
             item
-            xl={6}
-            lg={6}
+            xl={8}
+            lg={8}
             md={8}
             sm={9}
             xs={12}
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              // alignItems: 'center',
+
               justifyContent: 'center',
             }}
           >

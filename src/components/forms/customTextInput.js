@@ -27,7 +27,20 @@ export default function CustomTextInput({
         flexDirection: 'column',
       }}
     >
-      {label === undefined ? <></> : <InputLabel>{label}</InputLabel>}
+      {label === undefined ? (
+        <></>
+      ) : (
+        <InputLabel
+          sx={{
+            fontWeight: 'bold',
+            fontSize: '14px',
+            mb: '5px',
+            color: '#1A1824',
+          }}
+        >
+          {label}
+        </InputLabel>
+      )}
 
       <TextField
         fullWidth={true}

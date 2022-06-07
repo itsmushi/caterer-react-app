@@ -140,7 +140,11 @@ export default function MerchantStep() {
       </Grid>
 
       <Link to="/forgot-password">
-        <Typography variant="body1" color="primary" sx={{ mt: 2 }}>
+        <Typography
+          variant="body1"
+          color="primary"
+          sx={{ mt: 2, fontWeight: 'bold', fontSize: '14px' }}
+        >
           Forgot password?
         </Typography>
       </Link>
@@ -171,7 +175,11 @@ export default function MerchantStep() {
           Already have an account?
         </Typography>
         <Link to="/login">
-          <Typography variant="body1" color="primary">
+          <Typography
+            variant="body1"
+            color="primary"
+            sx={{ fontWeight: 'bold' }}
+          >
             Login
           </Typography>
         </Link>

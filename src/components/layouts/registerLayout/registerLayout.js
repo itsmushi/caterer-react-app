@@ -6,16 +6,18 @@ export default function RegisterLayout(props) {
   const { children } = props
   const classes = useStyle()
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="row"
-      justifyContent="center"
-      sx={{ my: 5 }}
-    >
-      <Grid item xl={10} lg={10} md={10} sm={10} xs={11}>
-        {children}
+    <Box sx={{ margin: 'auto', width: '60%' }}>
+      <Grid
+        container
+        spacing={0}
+        direction="row"
+        justifyContent="center"
+        sx={{ my: 5 }}
+      >
+        <Grid item xl={10} lg={10} md={10} sm={10} xs={11}>
+          {children}
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   )
 }
