@@ -83,9 +83,15 @@ const Connector = styled(StepConnector)(({ theme }) => ({
     marginRight: '10%',
     borderRadius: 1,
   },
+  [theme.breakpoints.down('md')]: {
+    marginTop: '8%',
+    // marginLeft: '5%',
+  },
   [theme.breakpoints.down('sm')]: {
     marginTop: '12%',
     marginLeft: '-10%',
+    height: 0,
+    width: 0,
   },
 }))
 
@@ -126,14 +132,13 @@ export default function Register() {
             </Step>
           ))}
         </Stepper>
-
         <Grid
           container
           spacing={0}
           direction="row"
           justifyContent="center"
           mt={3}
-          style={{}}
+          sx={{ my: 5 }}
         >
           <Grid
             item

@@ -89,14 +89,13 @@ const ForgotPassword = () => {
                   : ''}
               </div>
             </div>
+
             <div className="text-center">
               <button
                 type="submit"
                 className="btn btn-login w-100 theme-btn mx-auto"
               >
-                <Link to="/check-email">
-                  <h6 className="mb-0">Send Email</h6>
-                </Link>
+                <h6 className="mb-0">Send Email</h6>
               </button>
             </div>
           </form>

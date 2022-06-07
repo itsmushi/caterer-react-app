@@ -6,9 +6,9 @@ import React from 'react'
 
 export default function CustomDropDown({
   handleChange,
-  label,
+  label = '',
+  width = { undefined },
   dropdownOptions,
-  width,
   defaultSelected,
   isRequired = false,
 }) {
@@ -28,7 +28,11 @@ export default function CustomDropDown({
       }}
       required={isRequired}
     >
-      <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
+      {label === '' ? (
+        <></>
+      ) : (
+        <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
+      )}
       <Select
         labelId="demo-simple-select-filled-label"
         id="demo-simple-select-filled"

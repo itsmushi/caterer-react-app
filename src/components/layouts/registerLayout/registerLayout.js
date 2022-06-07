@@ -11,10 +11,9 @@ export default function RegisterLayout(props) {
       spacing={0}
       direction="row"
       justifyContent="center"
-      mt={3}
-      sx={{ minWidth: '320px' }}
+      sx={{ my: 5 }}
     >
-      <Grid item xl={10} lg={10} md={10} sm={10} xs={10}>
+      <Grid item xl={10} lg={10} md={10} sm={10} xs={11}>
         {children}
       </Grid>
     </Grid>

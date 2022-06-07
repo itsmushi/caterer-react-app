@@ -34,7 +34,7 @@ const Enterpin = () => {
         </Link>
         <div className="mx-auto text-center">
           <h4>Enter Pin</h4>
-          <p className="forget-text">Please Enter your 4 Digit Pin.</p>
+          <p className="forget-text">Please enter your 4 Digit PIN.</p>
         </div>
       </div>
       <div className="text-center">
@@ -50,7 +50,10 @@ const Enterpin = () => {
 
         <div className="auth-option text-center pt-4 text-bold">
           <Link className="text-link text-lightgreen" to="/forgot-pin">
-            <h6>Forgot Pin?</h6>
+            <u>
+              {' '}
+              <h6>Forgot Pin?</h6>
+            </u>
           </Link>
         </div>
 

@@ -5,7 +5,9 @@ const Selectuser = () => {
   return (
     <div className="text-center">
       <h4 className="forget-header">Select Operator</h4>
-      <p className="forget-text">Choose an account to get more authority</p>
+      <p className="forget-text text-muted">
+        Choose an account to get more authority
+      </p>
       <div className="row container mx-auto">
         <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-2">
           <button
@@ -22,7 +24,7 @@ const Selectuser = () => {
 
                 <div className="text-start">
                   <h5>Sarinah Hasbunah </h5>
-                  <p>Manager</p>
+                  <p className="text-muted">Manager</p>
                 </div>
               </div>
             </Link>
@@ -42,7 +44,7 @@ const Selectuser = () => {
                 />
                 <div className="text-start">
                   <h5>Aisafu Mahfudah</h5>
-                  <p>Manager</p>
+                  <p className="text-muted"> Manager</p>
                 </div>
               </div>
             </Link>
@@ -62,7 +64,7 @@ const Selectuser = () => {
                 />
                 <div className="text-start">
                   <h5>Dinastri Mina</h5>
-                  <p>Manager</p>
+                  <p className="text-muted">Manager</p>
                 </div>
               </div>
             </Link>
@@ -82,7 +84,7 @@ const Selectuser = () => {
                 />
                 <div className="text-start">
                   <h5>Mahfudah</h5>
-                  <p>Staff</p>
+                  <p className="text-muted">Staff</p>
                 </div>
               </div>
             </Link>
@@ -102,7 +104,7 @@ const Selectuser = () => {
                 />
                 <div className="text-start">
                   <h5>Citi Mulamah</h5>
-                  <p>Staff</p>
+                  <p className="text-muted">Staff</p>
                 </div>
               </div>
             </Link>
@@ -122,7 +124,7 @@ const Selectuser = () => {
                 />
                 <div className="text-start">
                   <h5>Sarinah Hasbunah</h5>
-                  <p>Manager</p>
+                  <p className="text-muted">Manager</p>
                 </div>
               </div>
             </Link>

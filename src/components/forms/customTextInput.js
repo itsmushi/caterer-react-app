@@ -8,16 +8,17 @@ export default function CustomTextInput({
   placeholder,
   type,
   name,
-  label,
+  label = '',
+  icon = '',
+  ariaLabel = { undefined },
   value,
   isRequired = false,
 
   onBlur,
   helperText,
-  ariaLabel,
+
   onChange,
   error,
-  icon,
 }) {
   return (
     <Box
@@ -26,9 +27,8 @@ export default function CustomTextInput({
         flexDirection: 'column',
       }}
     >
-      <InputLabel shrink sx={{ fontWeight: 'bold' }}>
-        {label}
-      </InputLabel>
+      {label === undefined ? <></> : <InputLabel>{label}</InputLabel>}
+
       <TextField
         fullWidth={true}
         sx={{ borderRadius: '32px', marginBottom: '15px' }}
@@ -49,9 +49,13 @@ export default function CustomTextInput({
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <IconButton aria-label={ariaLabel} edge="end">
-                {icon}
-              </IconButton>
+              {icon === '' ? (
+                <></>
+              ) : (
+                <IconButton aria-label={ariaLabel} edge="end">
+                  {icon}
+                </IconButton>
+              )}
             </InputAdornment>
           ),
         }}

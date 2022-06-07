@@ -146,7 +146,7 @@ const Login = () => {
                   <div className="extra mt-3 row justify-content-between">
                     <div>
                       <Link to="/forgot-password" className="text-lightgreen">
-                        Forgot password?
+                        <u> Forgot Password? </u>
                       </Link>
                     </div>
                   </div>
@@ -162,8 +162,11 @@ const Login = () => {
               </form>
               <div className="auth-option text-center pt-4 text-bold">
                 Don't have an Account?{' '}
-                <Link className="text-link text-lightgreen" to="/register">
-                  <h6>Register</h6>
+                <Link className="text-link text-lightgreen " to="/register">
+                  <u>
+                    {' '}
+                    <h6 className="d-inline">Register</h6>{' '}
+                  </u>
                 </Link>
               </div>
             </div>
