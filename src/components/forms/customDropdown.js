@@ -24,7 +24,7 @@ export default function CustomDropDown({
       variant="filled"
       sx={{
         marginBottom: '10px',
-        width: width,
+        // width: width,
       }}
       required={isRequired}
     >

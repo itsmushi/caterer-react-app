@@ -175,7 +175,10 @@ export default function OwnerInfoStep() {
       />
       <Grid container spacing={2} direction="row" justifyContent="center">
         <Grid item xl={8} lg={8} md={8} sm={12} xs={12}>
-          <InputLabel shrink sx={{ fontWeight: 'bold' }}>
+          <InputLabel
+            shrink
+            sx={{ fontWeight: 'bold', fontSize: '18px', color: '#1A1824' }}
+          >
             Phone Number
           </InputLabel>
 
@@ -184,16 +187,17 @@ export default function OwnerInfoStep() {
             spacing={1}
             direction="row"
             justifyContent="space-between"
-            style={{}}
+            alignItems="center"
+            sx={{ backgroundColor: '' }}
           >
-            <Grid item xl={2} lg={2} md={2} sm={2} xs={2}>
+            <Grid item xl={3} lg={3} md={3} sm={3} xs={4}>
               <CustomDropDown
                 handleChange={handlerPhoneInitial}
                 dropdownOptions={dropDownOptions}
                 defaultSelected={formik.values.phoneInitial}
               />
             </Grid>
-            <Grid item xl={10} lg={10} md={10} sm={10} xs={10}>
+            <Grid item xl={9} lg={9} md={9} sm={9} xs={8}>
               <CustomTextInput
                 placeholder="xxxx-xxxx-xxxx"
                 value={formik.values.ownerPhone}
